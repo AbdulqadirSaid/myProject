@@ -19,7 +19,7 @@ const Registration = () => {
     console.log('Registering user...');
     // TO DO: Implement registration logic here
     // For now, just redirect to CustomerDashboard
-    window.location.href = '/customerdashboard';
+    window.location.href = '/customerdashboard/home';
   };
 
   return (
@@ -49,10 +49,6 @@ const Registration = () => {
         <div className="form-group">
           <label>Address:</label>
           <input type="text" value={address} onChange={(e) => setAddress(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Location:</label>
-          <input type="text" value={location} onChange={(e) => setLocation(e.target.value)} />
         </div>
         <button type="submit">Register</button>
       </form>

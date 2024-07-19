@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Assuming you're using Reach Router or React Router
 
 const OrderTable = () => {
   const [orders, setOrders] = useState([]);
-  const navigate = useNavigate();
+  const navigate= useNavigate ();
 
   useEffect(() => {
     fetchOrders();
@@ -17,7 +17,7 @@ const OrderTable = () => {
       })
       .catch(error => {
         console.error('Error fetching orders:', error);
-        alert('Error fetching orders!');
+        alert('');
       });
   };
 
@@ -34,7 +34,8 @@ const OrderTable = () => {
   };
 
   const handleUpdateOrder = (id) => {
-    navigate(`/order_update/${id}`);
+    // Navigate to update page or form for the order with ID 'id'
+    navigate(`/order_update/${id}`); // Example URL, adjust as per your routes
   };
 
   return (
@@ -48,7 +49,6 @@ const OrderTable = () => {
             <th>Quantity</th>
             <th>Delivery Date</th>
             <th>Delivery Time</th>
-            <th>Price</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -60,7 +60,6 @@ const OrderTable = () => {
               <td>{order.quantity}</td>
               <td>{order.deliveryDate}</td>
               <td>{order.deliveryTime}</td>
-              <td>{order.price}</td>
               <td>
                 <button onClick={() => handleUpdateOrder(order.id)}>Update</button>
                 <button onClick={() => handleDeleteOrder(order.id)}>Delete</button>

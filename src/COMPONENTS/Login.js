@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Registration from './Registration';
 
 const Login = () => {
@@ -6,13 +7,15 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [userType, setUserType] = useState('');
   const [showRegistration, setShowRegistration] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username === 'ABDUL' && password === '1234' && userType === 'admin') {
-      window.location.href = '/admindashboard';
-    } else if (username === 'customer' && password === 'password' && userType === 'customer') {
-      window.location.href = '/customerdashboard';
+      navigate('/admindashboard/home');
+    } else if (username === 'c' && password === 'p' && userType === 'customer') {
+      navigate('/register')
+      setShowRegistration(true);
     } else {
       alert('Invalid credentials');
     }
@@ -20,13 +23,13 @@ const Login = () => {
 
   const handleRegister = (e) => {
     e.preventDefault();
-    setShowRegistration(true);
+    navigate('/');
   };
 
   return (
     <div className="container">
-      {showRegistration? (
-        <Registration />
+      {showRegistration ? (
+        <Registration handleRegister={handleRegister} />
       ) : (
         <form onSubmit={handleSubmit}>
           <h2>Login</h2>
@@ -48,8 +51,8 @@ const Login = () => {
           </div>
           <button type="submit">Login</button>
           <p>
-            <a href="#" onClick={handleRegister}>
-              Don't have an account? Register now!
+            <a href="#" onClick={(e) => setShowRegistration(true)}>
+              Don't have an account? 
             </a>
           </p>
         </form>

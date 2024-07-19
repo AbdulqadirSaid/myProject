@@ -34,7 +34,7 @@ const OrderTable = () => {
   };
 
   const handleUpdateOrder = (id) => {
-    navigate(`/order_update/${id}`);
+    navigate(`/admin_order_update/${id}`);
   };
 
   return (

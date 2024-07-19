@@ -1,83 +1,197 @@
+
+/*vieOrder*/
+/* OrderTable.css */
+
+/* Table styles */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+/* Header styles */
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Data cell styles */
+td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #ccc;
+}
+
+/* Remove border from last row */
+tr:last-child {
+  border-bottom: none;
+}
+
+/* Add some space between rows */
+tr {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+/* Make the table responsive */
+@media only screen and (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px;
+  }
+}
+
 /*dashboard*/
+/* AdminDashboard.css */
+
 .admindashboard {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  background-color:darkkhaki ; 
+  margin-bottom: 600px;/* light gray background */
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .header {
-  background-color: blueviolet;
-  color: white;
+  background-color: blue; /* dark gray background */
+  color: #fff; /* white text */
   padding: 10px;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
+  height: 55px;
+}
+
+.header h1 {
+  color: #fff; /* white text */
+  font-size: 24px;
+  margin: 0;
 }
 
 .main-content {
   display: flex;
-  flex: 1;
-  margin-top: 60px; /* Adjust based on header height */
-  position: relative;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.2; /* Adjust opacity as needed */
+  flex-direction: row;
+  background-color:none;
 }
 
 .sidebar {
-  width: 250px;
-  background-color: navajowhite;
-  padding: 15px;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.sidebar h2 {
-  font-size: 25px;
-  margin-bottom: 1px;
+  width: 200px;
+  background-color: wheat; /* light gray background */
+  padding: 20px;
+  border-right: 1px solid #ddd;
 }
 
 .sidebar ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 0;
 }
 
-.sidebar ul li {
-  margin-bottom: 20px;
+.sidebar li {
+  margin-bottom: 10px;
 }
 
-.sidebar ul li a {
+.sidebar a {
+  color: #333;
   text-decoration: none;
-  font-size: 20px;
-  color:purple;
+}
 
+.sidebar a:hover {
+  color: #666;
 }
 
 .content {
   flex: 1;
-  margin-left: 250px;
-  padding: 15px;
-  background-color: #45a049;
+  padding: 20px;
+}
+
+CustomerDashboard
+.customerdashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: darkkhaki; /* light gray background */
+}
+
+.header {
+  background-color: rgb(51, 51, 51)
+  333; /* dark gray background */
+  color: #fff; /* white text */
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 20px; /* add some space between header and main content */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* add some space between sidebar and content */
+}
+
+.sidebar {
+  background-color: #f0f0f0; /* light gray background */
+  padding: 20px;
+  width: 200px;
+  margin-right: 20px; /* add some space between sidebar and content */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color:blue;
+  font-size: 20px; 
+/* blue text */
+}
+
+.sidebar a:hover {
+  color: #23527c; /* darker blue on hover */
+}
+
+.content {
+  padding: 20px;
+  flex: 1;
+}
+
+.route {
+  padding: 20px;
+  margin-bottom: 20px; /* add some space between routes */
+}
+
+.route h1 {
+  margin-top: 0;
+}
+
+.route p {
+  margin-bottom: 20px;
 }
 
 
 
 /*addmenuitems.css*/
-/*A healthy and delicious grilled chicken salad with mixed greens, cherry tomatoes, cucumbers, and a lemon vinaigrette. 
-Main ingredients: grilled chicken breast, mixed greens, cherry tomatoes, cucumbers, lemon vinaigrette. 
-Flavor profile: fresh, tangy, and slightly smoky.
-Allergen information: contains dairy (cheese topping optional).
-Serving size: serves 1.*/
+
 .add-menu-item {
   max-width: 600px;
   margin: 0 auto;
@@ -144,167 +258,169 @@ button:hover {
 
 
 /*menuitem.css*/
-.menu-items {
-  padding: 1em;
-}
-
-.menu-items h2 {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-}
-
-.menu-items table {
-  width: 100%;
+.menu-items-table {
   border-collapse: collapse;
+  width: 100%;
 }
 
-.menu-items th, .menu-items td {
+.menu-items-table th, .menu-items-table td {
   border: 1px solid #ddd;
-  padding: 0.5em;
+  padding: 8px;
   text-align: left;
 }
-/*orderform.css*/
-.order-form {
-  width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: palevioletred;
+
+.menu-items-table th {
+  background-color: #f0f0f0;
 }
 
-.order-form h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.order-form table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.order-form td {
-  padding: 10px;
-  vertical-align: top;
-}
-
-.order-form label {
-  font-weight: bold;
-}
-
-.order-form input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.order-form .submit-row {
-  text-align: center;
-}
-
-.order-form button {
-  padding: 10px 20px;
-  border: none;
-  background-color: #28a745;
-  color: white;
-  font-size: 16px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.order-form button:hover {
-  background-color: #218838;
-}
-
-
-
-
-/*login.css*/
-.container {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.menu-items-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.logo {
-  width:150px;
+.delete-btn {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}
+
+.update-btn {
+  background-color: #008000;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.update-btn:hover {
+  background-color: #006600;
+}
+
+
+/*orderform.css*/
+.order-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.order-form input[type="text"], .view-order-form input[type="number"], .view-order-form input[type="date"], .view-order-form input[type="time"] {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 20px;
-  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.order-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.order-form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+
+
+
+  /* Login.css */
+
+.container {
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-top: 0;
+  font-weight: bold;
   color: #333;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .form-group {
-  width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
-.form-group input[type="text"],
-.form-group input[type="password"],
-.form-group input[type="email"]
- {
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"], input[type="password"] {
   width: 100%;
+  height: 40px;
   padding: 10px;
+  font-size: 16px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
 }
 
-
-
-.form-group label {
-  margin-right: 10px;
+select {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
 }
 
 button[type="submit"] {
   width: 100%;
+  height: 40px;
   padding: 10px;
-  background-color: #007bff;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: #fff;
   border: none;
   border-radius: 5px;
-  color: white;
   cursor: pointer;
-  font-size: 16px;
 }
 
 button[type="submit"]:hover {
-  background-color: #0056b3;
+  background-color: #3e8e41;
 }
 
-.links {
-  margin-top: 20px;
+a {
+  text-decoration: none;
+  color: #337ab7;
 }
 
-.links a {
-  margin: 0 10px;
-  color: #007bff;
+a:hover {
+  color: #23527c;
+}
+
+.registration-link {
+  font-size: 14px;
+  color: #337ab7;
   text-decoration: none;
 }
 
-.links a:hover {
-  text-decoration: underline;
+.registration-link:hover {
+  color: #23527c;
 }
 
-/*LOGIN AND REGISRATION FORM*/
 /* Login.css */
 
 .container {
@@ -364,7 +480,7 @@ a {
 
 a:hover {
   color: #23527c;
-}
+} */
 
 /* Registration.css */
 
@@ -537,29 +653,30 @@ a:hover {
 }
 
 /*Home.css*/
-.home {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url(''); /* Replace with your image path */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.content {
+.home.content {
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.8); /* Optional: to make text more readable */
-  padding: 20px;
-  border-radius: 8px;
 }
 
-.center-image {
-  margin-top: 20px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.big-image {
+  width: 400px; /* adjust the width and height to your liking */
+  height: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.small-image {
+  width: 150px; /* adjust the width and height to your liking */
+  height: 100px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -589,134 +706,148 @@ a:hover {
   background-color: #ff6b7c;
 }
 
-/*ADMINBOARD.CSS*/
-/*dashboard*/
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
-.header {
-  background-color: blueviolet;
-  color: white;
-  padding: 10px;
+/*MenuItemList.css*/
+.MenuItemsList {
+  font-family: Arial, sans-serif;
   text-align: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
 }
 
-.main-content {
-  display: flex;
-  flex: 1;
-  margin-top: 60px; /* Adjust based on header height */
-  position: relative;
-}
-
-.background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  opacity: 0.2; /* Adjust opacity as needed */
-}
-
-.sidebar {
-  width: 250px;
-  background-color: navajowhite;
-  padding: 15px;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.sidebar h2 {
-  font-size: 25px;
-  margin-bottom: 1px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar ul li {
+.MenuItemsList h1 {
+  color: #333;
   margin-bottom: 20px;
 }
 
-.sidebar ul li a {
-  text-decoration: none;
-  font-size: 20px;
-  color:purple;
-
+.MenuItemsList table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.content {
-  flex: 1;
-  margin-left: 250px;
-  padding: 15px;
+.MenuItemsList th, .MenuItemsList td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.MenuItemsList th {
+  background-color: #f0f0f0;
+}
+
+.MenuItemsList td input[type="number"] {
+  width: 50px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.MenuItemsList td input[type="number"]:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* update */
+
+.update-menu-item {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.update-menu-item h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
   background-color: #45a049;
 }
 
-.admin-link:hover {
-  background-color: #3e8e41;
-}
-/*CUSTOMERBOARD*/
-/* CustomerDashboard.css */
 
-.container {
-  max-width: 800px;
-  margin: 40px auto;
+/* oder upate */
+
+.order-form {
+  max-width: 400px;
+  margin: auto;
   padding: 20px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
 }
 
-h1 {
-  margin-top: 0;
+.order-form h1 {
   font-size: 24px;
-  color: #333;
+  margin-bottom: 20px;
   text-align: center;
 }
 
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-li {
+.order-form label {
+  display: block;
   margin-bottom: 10px;
 }
 
-a {
-  text-decoration: none;
-  color: #337ab7;
-  font-size: 18px;
-  font-weight: bold;
+.order-form input[type='text'],
+.order-form input[type='number'],
+.order-form input[type='date'],
+.order-form input[type='time'] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-a:hover {
-  color: #23527c;
+.order-form .submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-a:active {
-  color: #337ab7;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+.order-form .submit-button:hover {
+  background-color: #45a049;
 }
-
-
-
 
 

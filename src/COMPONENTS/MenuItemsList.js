@@ -18,20 +18,6 @@ const MenuItems = () => {
       console.error('Error fetching menu items:', error);
     }
   };
-
-  const handleDelete = async (id) => {
-    try {
-      await fetch(`http://localhost:8080/api/menu-items/${id}`, { method: 'DELETE' });
-      setMenuItems(menuItems.filter(item => item.id !== id));
-    } catch (error) {
-      console.error('Error deleting menu item:', error);
-    }
-  };
-
-  const handleEdit = (id) => {
-    navigate(`/update/${id}`);
-  };
-
   return (
     <table>
       <thead>
@@ -42,7 +28,6 @@ const MenuItems = () => {
           <th>Price</th>
           <th>Description</th>
           <th>Status</th>
-          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -54,10 +39,6 @@ const MenuItems = () => {
             <td>{item.price}</td>
             <td>{item.description}</td>
             <td>{item.status ? 'Available' : 'Not Available'}</td>
-            <td>
-              <button onClick={() => handleEdit(item.id)}>Update</button>
-              <button onClick={() => handleDelete(item.id)}>Delete</button>
-            </td>
           </tr>
         ))}
       </tbody>

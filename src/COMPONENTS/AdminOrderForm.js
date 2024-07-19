@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 const OrderForm = () => {
   const [foodName, setFoodName] = useState('');
@@ -8,7 +7,6 @@ const OrderForm = () => {
   const [price, setPrice] = useState(0); // assume price is set by the admin
   const [deliveryDate, setDeliveryDate] = useState('');
   const [deliveryTime, setDeliveryTime] = useState('');
-  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,7 +23,6 @@ const OrderForm = () => {
       .then(response => {
         console.log('Order submitted successfully:', response.data);
         alert('Order placed successfully!');
-        navigate('/Customerdashboard/view');
         // Optionally clear the form after successful submission
         setFoodName('');
         setQuantity(1);

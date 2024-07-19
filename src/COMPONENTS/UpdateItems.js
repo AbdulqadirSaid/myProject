@@ -1,40 +1,58 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
-const AddMenuItem = () => {
+const UpdateMenuItem = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const [foodName, setFoodName] = useState('');
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0.0);
   const [description, setDescription] = useState('');
-  const [status, setStatus] = useState(false); // Assuming status is boolean
-  const navigate = useNavigate();
+  const [status, setStatus] = useState('');
+
+  useEffect(() => {
+    axios.get(`http://localhost:8080/api/menu-items/${id}`)
+      .then((response) => {
+        const menuItem = response.data;
+        setFoodName(menuItem.foodName);
+        setQuantity(menuItem.quantity);
+        setPrice(menuItem.price);
+        setDescription(menuItem.description);
+        setStatus(menuItem.status.toString()); // Convert boolean to string for input field
+      })
+      .catch((error) => {
+        console.error('Error fetching menu item:', error);
+        alert('Error fetching menu item!');
+      });
+  }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const menuItem = {
       foodName: foodName,
-      quantity: parseInt(quantity), // Convert to number if necessary
-      price: parseFloat(price), // Convert to number if necessary
+      quantity: parseInt(quantity),
+      price: parseFloat(price),
       description: description,
-      status: status,
+      status: status === 'true' ? true : false, // Convert string back to boolean
     };
 
-    axios.post('http://localhost:8080/api/menu-items', menuItem)
+    axios.put(`http://localhost:8080/api/menu-items/${id}`, menuItem)
       .then((response) => {
         console.log(response.data);
-        alert('Menu item added successfully!');
-        navigate('/admindashboard/Menu-tems'); // Navigate to the menu items page after adding
+        alert('Menu item updated successfully!');
+        navigate('/admindashboard/Menu-tems'); // Navigate to the menu items page after updating
       })
       .catch((error) => {
-        console.error(error);
-        alert('Error adding menu item!');
+        console.error('Error updating menu item:', error);
+        alert('Error updating menu item!');
       });
   };
 
   return (
-    <div className="add-menu-item">
-      <h2>Add Menu Item</h2>
+    <div className="update-menu-item">
+      <h2>Update Menu Item</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="foodName">Food Name:</label>
@@ -54,15 +72,15 @@ const AddMenuItem = () => {
         </div>
         <div className="form-group">
           <label htmlFor="status">Status:</label>
-          <select id="status" name="status" required value={status} onChange={(event) => setStatus(event.target.value === 'true')}>
+          <select id="status" name="status" required value={status} onChange={(event) => setStatus(event.target.value)}>
             <option value="true">Available</option>
             <option value="false">Not Available</option>
           </select>
         </div>
-        <button type="submit">Add Item</button>
+        <button type="submit">Update Item</button>
       </form>
     </div>
   );
 };
 
-export default AddMenuItem;
+export default UpdateMenuItem;
